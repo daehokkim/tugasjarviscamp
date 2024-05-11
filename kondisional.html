@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Conditional HTML</title>
+  </head>
+
+  <body>
+    <h1>Berlatih Kondisional</h1>
+    <h2>Adella Maulana Annur Ramadhan</h2>
+
+    <h3>Masukkan nama dan peranmu!</h3>
+    <form action="#" id="formConditional">
+      <input type="text" id="name" placeholder="Isi nama di sini" />
+      <input type="text" id="role" placeholder="Isi peran di sini" />
+      <input type="submit" value="Mulai Permainan" />
+    </form>
+
+    <h3>Jawaban dari console game:</h3>
+    <div id="jawaban"></div>
+
+    <script>
+      var form = document.getElementById("formConditional");
+      var jawaban = document.getElementById("jawaban");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        var name = document.getElementById("name").value;
+        var role = document.getElementById("role").value;
+
+        function permainan(name, role) {
+          if (name === "" && role === "") {
+            return "Nama harus diisi!";
+          } else if (name !== "" && role === "") {
+            return "Halo " + name + ", Pilih peranmu untuk memulai game!";
+          } else if (name !== "" && role === "Penyihir") {
+            return (
+              "Selamat datang di Dunia Werewolf, " +
+              name +
+              "\nHalo Penyihir " +
+              name +
+              ", kamu dapat melihat siapa yang menjadi Werewolf!"
+            );
+          } else if (name !== "" && role === "Werewolf") {
+            return (
+              "Selamat datang di Dunia Werewolf, " +
+              name +
+              "\nHalo Werewolf " +
+              name +
+              ", kamu dapat memilih siapa yang akan kamu makan malam ini!"
+            );
+          } else if (name !== "" && role === "Rakjel") {
+            return (
+              "Selamat datang di Dunia Werewolf, " +
+              name +
+              "\nHalo Rakjel " +
+              name +
+              ", Kamu menjadi rakyat jelata"
+            );
+          }
+        }
+
+        var jawabanKonsol = permainan(name, role);
+        jawaban.innerHTML = jawabanKonsol;
+      });
+    </script>
+  </body>
+</html>
