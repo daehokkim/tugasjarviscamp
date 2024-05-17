@@ -1,0 +1,1 @@
+Pada pertemuan 3 ini di Jarvis Academy saya mempelajari berbagai materi php dengan kak Abdullah. Kami diajarkan bagaimana menggunakan bahasa php serta mengenalkan beberapa query pada bahasa pemrograman php. Adapun materi lain seperti tipe data, Kak Abdullah memberi contoh satu persatu tipe data dan dipraktekan langsung serta beberapa operator aritmatika.
