@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Pertemuan 3</title>
+  </head>
+  <body>
+    <h1>TUGAS PERTEMUAN 3</h1>
+    <h2>Adella Maulana Annur Ramadhan</h2>
+
+    <h1>Tampilkan Angka Ganjil</h1>
+    <input
+      type="number"
+      id="angkaPertama"
+      placeholder="Masukkan angka pertama"
+    />
+    <input
+      type="number"
+      id="angkaTerakhir"
+      placeholder="Masukkan angka terakhir"
+    />
+    <button onclick="tampilkanAngkaGanjil()">Tampilkan Angka Ganjil</button>
+    <p id="hasilGanjil"></p>
+
+    <h1>Tampilkan Angka Genap</h1>
+    <input
+      type="number"
+      id="angkaPertama"
+      placeholder="Masukkan angka pertama"
+    />
+    <input
+      type="number"
+      id="angkaTerakhir"
+      placeholder="Masukkan angka terakhir"
+    />
+    <button onclick="tampilkanAngkaGenap()">Tampilkan Angka Genap</button>
+    <p id="hasilGenap"></p>
+
+    <h1>Aritmatika</h1>
+    <input type="number" id="angka1" placeholder="Masukkan angka pertama" />
+    <input type="number" id="angka2" placeholder="Masukkan angka kedua" />
+    <select id="operator">
+      <option value="+">Tambah</option>
+      <option value="-">Kurang</option>
+      <option value="*">Kali</option>
+      <option value="/">Bagi</option>
+    </select>
+    <button onclick="tampilkanHasil()">Hitung</button>
+    <p id="hasil"></p>
+
+    <script>
+      function tampilkanAngkaGanjil() {
+        // Mendapatkan nilai dari elemen input
+        let angkaPertama = parseInt(
+          document.getElementById("angkaPertama").value
+        );
+        let angkaTerakhir = parseInt(
+          document.getElementById("angkaTerakhir").value
+        );
+
+        // Memeriksa input yang valid
+        if (isNaN(angkaPertama) || isNaN(angkaTerakhir)) {
+          document.getElementById("hasilGanjil").textContent =
+            "Harap masukkan angka yang valid.";
+          return;
+        }
+
+        // Array untuk menyimpan angka ganjil
+        let hasil = [];
+
+        // Loop dari angka pertama hingga angka terakhir
+        for (let i = angkaPertama; i <= angkaTerakhir; i++) {
+          if (i % 2 !== 0) {
+            hasil.push(i);
+          }
+        }
+
+        // Menampilkan hasil di elemen dengan id "hasilGanjil"
+        document.getElementById(
+          "hasilGanjil"
+        ).textContent = `Angka Ganjil: ${hasil.join(", ")}`;
+      }
+
+      function tampilkanAngkaGenap() {
+        // Mendapatkan nilai dari elemen input
+        let angkaPertama = parseInt(
+          document.getElementById("angkaPertama").value
+        );
+        let angkaTerakhir = parseInt(
+          document.getElementById("angkaTerakhir").value
+        );
+
+        // Memeriksa input yang valid
+        if (isNaN(angkaPertama) || isNaN(angkaTerakhir)) {
+          document.getElementById("hasilGenap").textContent =
+            "Harap masukkan angka yang valid.";
+          return;
+        }
+
+        // Array untuk menyimpan angka genap
+        let hasil = [];
+
+        // Loop dari angka pertama hingga angka terakhir
+        for (let i = angkaPertama; i <= angkaTerakhir; i++) {
+          if (i % 2 === 0) {
+            hasil.push(i);
+          }
+        }
+
+        // Menampilkan hasil di elemen dengan id "hasilGenap"
+        document.getElementById(
+          "hasilGenap"
+        ).textContent = `Angka Genap: ${hasil.join(", ")}`;
+      }
+      function hitungAritmatika(angka1, angka2, operator) {
+        switch (operator) {
+          case "+":
+            return angka1 + angka2;
+          case "-":
+            return angka1 - angka2;
+          case "*":
+            return angka1 * angka2;
+          case "/":
+            if (angka2 !== 0) {
+              return angka1 / angka2;
+            } else {
+              return "Error: Pembagian dengan nol tidak diperbolehkan";
+            }
+          default:
+            return "Error: Operator tidak valid";
+        }
+      }
+
+      function tampilkanHasil() {
+        // Mendapatkan nilai dari elemen input dan select
+        let angka1 = parseFloat(document.getElementById("angka1").value);
+        let angka2 = parseFloat(document.getElementById("angka2").value);
+        let operator = document.getElementById("operator").value;
+
+        // Memanggil fungsi hitungAritmatika
+        let hasil = hitungAritmatika(angka1, angka2, operator);
+
+        // Menampilkan hasil di elemen dengan id "hasil"
+        document.getElementById("hasil").textContent = `Hasil: ${hasil}`;
+      }
+    </script>
+  </body>
+</html>
